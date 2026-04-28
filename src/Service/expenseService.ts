@@ -1,5 +1,5 @@
 import axios from 'axios';  // Importing the axios library for making HTTP requests,In this case we will use it to fetch data from the backend API.
-import { ExpenseRequest, ExpenseResponse } from '../types/Expense';
+import type { ExpenseRequest, ExpenseResponse } from '../types/Expense';
 
 const BASE_URL = 'http://localhost:8080/api/expenses';
 
