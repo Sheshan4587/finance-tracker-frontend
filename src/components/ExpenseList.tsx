@@ -1,5 +1,5 @@
-import type { ExpenseResponse } from "../types/Expense";
-import  ExpenseCard  from "./ExpenseCard";
+import type { ExpenseRequest, ExpenseResponse } from "../types/Expense";
+import ExpenseCard from "./ExpenseCard";
 
 /**
  * This component is responsible for displaying a list of expenses.
@@ -14,6 +14,7 @@ import  ExpenseCard  from "./ExpenseCard";
 interface ExpenseListProps {
     expenses: ExpenseResponse[]; // An array of ExpenseResponse objects representing the expenses to be displayed in the list.
     onDelete: (id: string) => void; // A function that takes an id as a parameter and is called when the delete button in an ExpenseCard is clicked. It is responsible for handling the deletion of an expense.
+    onUpdate: (id: string, expense: ExpenseRequest) => void; // A function that takes an id and an ExpenseRequest object as parameters and is called when the update button in an ExpenseCard is clicked. It is responsible for handling the update of an expense.
 }
 
 // The ExpenseList component is a functional component that takes ExpenseListProps as its props. The inside the div, it maps over the expenses array and renders an ExpenseCard for each expense. 
@@ -22,11 +23,25 @@ interface ExpenseListProps {
 function ExpenseList(props: ExpenseListProps) {
     return (
         <div>
-            {props.expenses.map(expense => (
-                <ExpenseCard key={expense.id}
-                    expense={expense}
-                    onDelete={props.onDelete} />
-            ))}
+            <h2 className="text-cyan-400 text-lg font-semibold mb-4 tracking-widest uppercase">
+                Expenses
+            </h2>
+            {props.expenses.length === 0 ? (
+                <div className="text-center text-gray-600 py-10 border border-dashed border-gray-800 rounded-2xl">
+                    No expenses yet. Add one above!
+                </div>
+            ) : (
+                <div className="flex flex-col gap-4">
+                    {props.expenses.map(expense => (
+                        <ExpenseCard
+                            key={expense.id}
+                            expense={expense}
+                            onDelete={props.onDelete}
+                            onUpdate={props.onUpdate}
+                        />
+                    ))}
+                </div>
+            )}
         </div>
     );
 }

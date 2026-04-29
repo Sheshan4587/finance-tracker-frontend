@@ -32,32 +32,45 @@ function ExpenseForm(props: ExpenseFormProps) {
     }
 
     return (
-        <div>
-            <input
-                type="text"
-                placeholder="Description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)} // Updates the description state variable when the input value changes.
-            />
-            <input
-                type="number"
-                placeholder="Amount"
-                value={amount}
-                onChange={(e) => setAmount(parseFloat(e.target.value))} // Updates the amount state variable when the input value changes, parsing it as a float.
-            />
-            <input
-                type="text"
-                placeholder="Category"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)} // Updates the category state variable when the input value changes.
-            />
-            <input
-                type="date"
-                placeholder="Date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)} // Updates the date state variable when the input value changes.
-            />
-            <button onClick={handleSubmit}>Add Expense</button> {/* Calls the handleSubmit function when the button is clicked to submit the form. */}
+        <div className="bg-gray-900 border border-cyan-800 rounded-2xl p-6 mb-8 shadow-lg shadow-cyan-900/20">
+            <h2 className="text-cyan-400 text-lg font-semibold mb-4 tracking-widest uppercase">
+                + New Expense
+            </h2>
+            <div className="grid grid-cols-2 gap-4">
+                <input
+                    type="text"
+                    placeholder="Description"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    className="bg-gray-800 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:border-cyan-500 col-span-2"
+                />
+                <input
+                    type="number"
+                    placeholder="Amount"
+                    value={amount}
+                    onChange={(e) => setAmount(parseFloat(e.target.value))}
+                    className="bg-gray-800 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:border-cyan-500"
+                />
+                <input
+                    type="text"
+                    placeholder="Category"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                    className="bg-gray-800 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:border-cyan-500"
+                />
+                <input
+                    type="date"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    className="bg-gray-800 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:border-cyan-500 col-span-2"
+                />
+            </div>
+            <button
+                onClick={handleSubmit}
+                className="mt-4 w-full bg-cyan-500 hover:bg-cyan-400 text-gray-950 font-bold py-2 rounded-lg tracking-widest uppercase transition-all duration-200"
+            >
+                Add Expense
+            </button>
         </div>
     );
 }
