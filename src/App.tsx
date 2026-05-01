@@ -3,6 +3,7 @@ import { getAllExpenses, createExpense, deleteExpense, updateExpense } from "./S
 import ExpenseForm from "./components/ExpenseForm";
 import ExpenseList from "./components/ExpenseList";
 import { useState, useEffect } from "react";
+import ExpenseCharts from "./components/ExpenseCharts";
 
 function App() {
   const [expenses, setExpenses] = useState<ExpenseResponse[]>([]); // State variable to store the list of expenses. It is initialized to an empty array.
@@ -46,6 +47,9 @@ function App() {
           onDelete={handleDeleteExpense}
           onUpdate={handleUpdateExpense}
         />
+        <div className="mt-10">
+          <ExpenseCharts expenses={expenses} />
+        </div>
       </div>
     </div>
   )

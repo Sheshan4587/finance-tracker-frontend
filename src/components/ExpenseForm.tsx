@@ -56,8 +56,22 @@ function ExpenseForm(props: ExpenseFormProps) {
                     placeholder="Category"
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
+                    list="category-options"
                     className="bg-gray-800 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:border-cyan-500"
                 />
+                <datalist id="category-options">
+                    <option value="Food & Dining" />
+                    <option value="Transport" />
+                    <option value="Shopping" />
+                    <option value="Entertainment" />
+                    <option value="Health & Medical" />
+                    <option value="Housing & Rent" />
+                    <option value="Utilities" />
+                    <option value="Education" />
+                    <option value="Travel" />
+                    <option value="Savings" />
+                    <option value="Other" />
+                </datalist>
                 <input
                     type="date"
                     value={date}

@@ -22,7 +22,7 @@ interface ExpenseListProps {
 // The reason for using key={expense.id} is to provide a unique identifier for each ExpenseCard component in the list.
 function ExpenseList(props: ExpenseListProps) {
     return (
-        <div>
+        <div className="bg-gray-900 border border-cyan-800 rounded-2xl p-6 shadow-lg shadow-cyan-900/20 gap-6">
             <h2 className="text-cyan-400 text-lg font-semibold mb-4 tracking-widest uppercase">
                 Expenses
             </h2>
